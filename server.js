@@ -3,6 +3,7 @@ require("dotenv").config();
 const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 const app = express();
 app.use(cors());
@@ -47,3 +48,8 @@ router.post("/contact", (req, res) => {
     }
   });
 });
+
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
+);
