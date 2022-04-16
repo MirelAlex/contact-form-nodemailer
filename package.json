@@ -9,7 +9,7 @@
   "scripts": {
     "server": "nodemon server.js",
     "client": "npm start --prefix frontend",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd frontend && npm install && npm run build"
   },
   "name": "form",
   "version": "1.0.0",
